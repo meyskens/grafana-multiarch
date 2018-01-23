@@ -5,7 +5,7 @@ ARG arch
 ARG DOWNLOAD_URL
 
 RUN apt-get update && \
-    apt-get -y --no-install-recommends install libfontconfig wget ca-certificates && \
+    apt-get -y --no-install-recommends install libfontconfig wget curl ca-certificates && \
     apt-get clean && \
     wget -O /tmp/grafana.deb "${DOWNLOAD_URL}" && \
     dpkg -i /tmp/grafana.deb && \
