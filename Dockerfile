@@ -5,9 +5,9 @@ ARG arch
 ARG DOWNLOAD_URL
 
 RUN apt-get update && \
-    apt-get -y --no-install-recommends install libfontconfig curl ca-certificates && \
+    apt-get -y --no-install-recommends install libfontconfig wget ca-certificates && \
     apt-get clean && \
-    curl "${DOWNLOAD_URL}" > /tmp/grafana.deb && \
+    wget -O /tmp/grafana.deb "${DOWNLOAD_URL}" && \
     dpkg -i /tmp/grafana.deb && \
     rm /tmp/grafana.deb && \
     curl -L https://github.com/tianon/gosu/releases/download/1.10/gosu-${arch} > /usr/sbin/gosu && \
